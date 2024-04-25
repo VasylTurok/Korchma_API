@@ -73,6 +73,9 @@ class Drink(models.Model):
     sum_of_marks = models.IntegerField(default=0)
     count_marks = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.name
+
 
 class Comment(models.Model):
     name = models.CharField(max_length=63)
