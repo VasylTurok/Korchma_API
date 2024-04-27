@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-t5k%5y9)gobyv@+%ebjp6e#2)p7j^79dmq1$f*^%7d0hv5l&jp
 # SECURITY WARNING: don"t run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1",]
+ALLOWED_HOSTS = ["127.0.0.1", "https://korchma-api.onrender.com"]
 
 
 # Application definition
