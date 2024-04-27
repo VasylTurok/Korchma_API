@@ -6,10 +6,12 @@ django-rest-framework==0.1.0
 djangorestframework==3.15.1
 drf-spectacular==0.27.2
 flake8==7.0.0
+gunicorn==22.0.0
 inflection==0.5.1
 jsonschema==4.21.1
 jsonschema-specifications==2023.12.1
 mccabe==0.7.0
+packaging==24.0
 pep8-naming==0.13.3
 pillow==10.3.0
 psycopg2-binary==2.9.9
