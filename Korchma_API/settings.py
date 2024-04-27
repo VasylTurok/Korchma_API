@@ -129,8 +129,7 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = "/vol/web/media"
 
 STATIC_URL = "/static/"
-# STATIC_ROOT = "staticfiles/"
-#
+STATIC_ROOT = BASE_DIR / "staticfiles"#
 # STATICFILES_DIRS = [
 #     BASE_DIR / "static",
 # ]
