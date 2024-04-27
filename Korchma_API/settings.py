@@ -128,7 +128,7 @@ USE_TZ = True
 MEDIA_URL = "/media/"
 MEDIA_ROOT = "/vol/web/media"
 
-# STATIC_URL = "/static/"
+STATIC_URL = "/static/"
 # STATIC_ROOT = "staticfiles/"
 #
 # STATICFILES_DIRS = [
