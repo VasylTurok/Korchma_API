@@ -55,6 +55,7 @@ class Drink(models.Model):
     strength = models.CharField(max_length=63, blank=True)
     taste_parameters = models.CharField(max_length=63, blank=True)
     tastes_together = models.CharField(max_length=63, blank=True)
+    isRating = models.BooleanField(default=False)
     volume = models.ForeignKey(
         Volume,
         on_delete=models.CASCADE,
