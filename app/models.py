@@ -74,6 +74,12 @@ class Drink(models.Model):
     sum_of_marks = models.IntegerField(default=0)
     count_marks = models.IntegerField(default=0)
 
+    @property
+    def rating(self) -> float:
+        if self.count_marks != 0:
+            return self.sum_of_marks / self.count_marks
+        return 0
+
     def __str__(self):
         return self.name
 
@@ -83,13 +89,28 @@ class Comment(models.Model):
     email = models.CharField(max_length=63)
     body = models.TextField()
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
-    advantages = models.TextField()
-    disadvantages = models.TextField()
+    advantages = models.TextField(blank=True)
+    disadvantages = models.TextField(blank=True)
     drink = models.ForeignKey(
         Drink,
         on_delete=models.CASCADE,
         related_name="comments"
     )
+
+    def save(
+            self,
+            force_insert=False,
+            force_update=False,
+            using=None,
+            update_fields=None,
+    ):
+        self.full_clean()
+        self.drink.sum_of_marks += self.rating
+        self.drink.count_marks += 1
+        self.drink.save()
+        return super(Comment, self).save(
+            force_insert, force_update, using, update_fields
+        )
 
     def __str__(self):
         return self.name

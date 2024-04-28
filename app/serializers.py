@@ -44,6 +44,24 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class DrinkSerializer(serializers.ModelSerializer):
+    comments = CommentSerializer(many=True, read_only=True)
+
     class Meta:
         model = Drink
-        fields = "__all__"
+        fields = (
+            "id",
+            "name",
+            "descriptions",
+            "price",
+            "phone",
+            "site_link",
+            "strength",
+            "taste_parameters",
+            "tastes_together",
+            "isRating",
+            "rating",
+            "volume",
+            "drink_type",
+            "region",
+            "comments"
+        )

@@ -79,6 +79,7 @@ class RegionViewSet(
 class CommentViewSet(
     mixins.ListModelMixin,
     mixins.RetrieveModelMixin,
+    mixins.CreateModelMixin,
     GenericViewSet
 ):
     queryset = Comment.objects.all()
