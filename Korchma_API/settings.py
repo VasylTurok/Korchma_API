@@ -160,6 +160,6 @@ SPECTACULAR_SETTINGS = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    "http://*",
-    "https://*",
+    "http://localhost:8081",
+    "https://korchma-api.onrender.com",
 ]
