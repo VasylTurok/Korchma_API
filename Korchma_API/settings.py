@@ -162,11 +162,17 @@ SPECTACULAR_SETTINGS = {
 CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:7000',
     'http://localhost:3000',
+    'https://h-amster.github.io',
+    'http://localhost:8080',
+    'https://techamster.github.io',
 ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
     'http://localhost:3000',
     'http://127.0.0.1:7000',
     'https://korchma-api.onrender.com',
+    'https://h-amster.github.io/korchma/'
+    'http://localhost:8080/',
+    'https://techamster.github.io/test/',
 ]
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = [
