@@ -180,4 +180,6 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
     'x-requested-with',
     'content-disposition',
+    'X-PINGOTHER',
+    'Content-Type',
 ]
