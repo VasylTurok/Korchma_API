@@ -48,6 +48,7 @@ class DrinkSerializer(serializers.ModelSerializer):
     region = RegionSerializer(many=False, read_only=True)
     volume = VolumeSerializer(many=False, read_only=True)
     drink_type = DrinkTypeSerializer(many=False, read_only=True)
+    producer = ProducerSerializer(many=False, read_only=True)
 
     class Meta:
         model = Drink
@@ -56,11 +57,8 @@ class DrinkSerializer(serializers.ModelSerializer):
             "name",
             "descriptions",
             "price",
-            "phone",
-            "site_link",
-            "strength",
-            "taste_parameters",
-            "tastes_together",
+            "producer",
+            "count_comments",
             "isRating",
             "rating",
             "volume",
@@ -68,3 +66,18 @@ class DrinkSerializer(serializers.ModelSerializer):
             "region",
             "comments"
         )
+
+
+class DrinkListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Drink
+        fields = (
+            "id",
+            "borrow_date",
+            "expected_return_date",
+            "actual_return_date",
+            "book",
+            "user",
+            "is_active"
+        )
+

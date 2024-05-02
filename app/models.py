@@ -63,6 +63,11 @@ class Drink(models.Model):
         on_delete=models.CASCADE,
         related_name="drinks"
     )
+    producer = models.ForeignKey(
+        Producer,
+        on_delete=models.CASCADE,
+        related_name="drinks"
+    )
     drink_type = models.ForeignKey(
         DrinkType,
         on_delete=models.CASCADE,
@@ -81,6 +86,10 @@ class Drink(models.Model):
         if self.count_marks != 0:
             return self.sum_of_marks / self.count_marks
         return 0
+
+    @property
+    def count_comments(self) -> int:
+        return self.comments.count
 
     def __str__(self):
         return self.name
