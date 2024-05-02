@@ -45,6 +45,9 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class DrinkSerializer(serializers.ModelSerializer):
     comments = CommentSerializer(many=True, read_only=True)
+    region = RegionSerializer(many=False, read_only=True)
+    volume = VolumeSerializer(many=False, read_only=True)
+    drink_type = DrinkTypeSerializer(many=False, read_only=True)
 
     class Meta:
         model = Drink

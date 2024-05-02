@@ -41,7 +41,7 @@ class DrinkViewSet(
         "volume", "drink_type", "region", "comments"
     )
     serializer_class = DrinkSerializer
-    pagination_class = Pagination
+    # pagination_class = Pagination
 
 
 class DrinkTypeViewSet(
