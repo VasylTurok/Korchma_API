@@ -1,10 +1,5 @@
-from datetime import datetime
-
-from django.db.models import F, Count
-from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework import viewsets, mixins
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 
 from .models import (
@@ -23,7 +18,8 @@ from .serializers import (
     ProducerSerializer,
     VolumeSerializer,
     RegionSerializer,
-    CommentSerializer
+    CommentSerializer,
+    DrinkListSerializer
 )
 
 
@@ -40,6 +36,12 @@ class DrinkViewSet(
     queryset = Drink.objects.prefetch_related(
         "volume", "drink_type", "region", "comments"
     )
+
+    def get_serializer_class(self):
+        if self.action == "list":
+            return DrinkListSerializer
+        return self.serializer_class
+
     serializer_class = DrinkSerializer
     # pagination_class = Pagination
 

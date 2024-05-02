@@ -57,10 +57,15 @@ class DrinkSerializer(serializers.ModelSerializer):
             "name",
             "descriptions",
             "price",
-            "producer",
+            "phone",
+            "site_link",
+            "strength",
+            "taste_parameters",
+            "tastes_together",
             "count_comments",
             "isRating",
             "rating",
+            "producer",
             "volume",
             "drink_type",
             "region",
@@ -68,16 +73,20 @@ class DrinkSerializer(serializers.ModelSerializer):
         )
 
 
-class DrinkListSerializer(serializers.ModelSerializer):
+class DrinkListSerializer(DrinkSerializer):
     class Meta:
         model = Drink
         fields = (
             "id",
-            "borrow_date",
-            "expected_return_date",
-            "actual_return_date",
-            "book",
-            "user",
-            "is_active"
+            "name",
+            "descriptions",
+            "price",
+            "count_comments",
+            "isRating",
+            "rating",
+            "producer",
+            "volume",
+            "drink_type",
+            "region",
         )
 

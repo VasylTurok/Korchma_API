@@ -66,7 +66,8 @@ class Drink(models.Model):
     producer = models.ForeignKey(
         Producer,
         on_delete=models.CASCADE,
-        related_name="drinks"
+        related_name="drinks",
+        default=1
     )
     drink_type = models.ForeignKey(
         DrinkType,
