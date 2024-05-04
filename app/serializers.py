@@ -4,18 +4,24 @@ from rest_framework.exceptions import ValidationError
 
 from .models import (
     Drink,
-    Questionnaire,
     DrinkType,
     Producer,
     Volume,
     Region,
-    Comment
+    Comment,
+    Photo
 )
 
 
 class RegionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Region
+        fields = "__all__"
+
+
+class PhotoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Photo
         fields = "__all__"
 
 
@@ -49,6 +55,7 @@ class DrinkSerializer(serializers.ModelSerializer):
     volume = VolumeSerializer(many=False, read_only=True)
     drink_type = DrinkTypeSerializer(many=False, read_only=True)
     producer = ProducerSerializer(many=False, read_only=True)
+    photos = PhotoSerializer(many=True, read_only=True)
 
     class Meta:
         model = Drink
@@ -69,7 +76,8 @@ class DrinkSerializer(serializers.ModelSerializer):
             "volume",
             "drink_type",
             "region",
-            "comments"
+            "comments",
+            "photos"
         )
 
 
@@ -88,5 +96,5 @@ class DrinkListSerializer(DrinkSerializer):
             "volume",
             "drink_type",
             "region",
+            "photos"
         )
-

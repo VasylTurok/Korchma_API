@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "drf_spectacular",
     "corsheaders",
+    "ckeditor",
     "debug_toolbar",
     "app"
 ]
@@ -129,7 +130,7 @@ USE_TZ = True
 
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = "/vol/web/media"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"

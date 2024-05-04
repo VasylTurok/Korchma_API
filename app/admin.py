@@ -7,10 +7,12 @@ from .models import (
     Producer,
     Volume,
     Region,
-    Comment
+    Comment,
+    Photo
 )
 
 
+admin.site.register(Photo)
 admin.site.register(Drink)
 admin.site.register(Questionnaire)
 admin.site.register(DrinkType)
