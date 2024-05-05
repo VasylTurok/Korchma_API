@@ -98,7 +98,7 @@ class Drink(models.Model):
 
 
 class Photo(models.Model):
-    image = models.ImageField(upload_to='photos/')
+    image = models.URLField()
     uploaded_at = models.DateTimeField(auto_now_add=True)
     drink = models.ForeignKey(
         Drink,
@@ -112,7 +112,7 @@ class Photo(models.Model):
             raise ValidationError("Максимальна кількість фото для напою вже досягнута.")
 
     def __str__(self):
-        return self.image.name
+        return self.image
 
 
 class Comment(models.Model):
