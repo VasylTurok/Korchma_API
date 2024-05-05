@@ -1,7 +1,9 @@
 asgiref==3.8.1
 attrs==23.2.0
+dj-database-url==2.1.0
 Django==5.0.4
 django-ckeditor==6.7.1
+django-core==1.4.1
 django-cors-headers==4.3.1
 django-debug-toolbar==4.3.0
 django-js-asset==2.2.0
