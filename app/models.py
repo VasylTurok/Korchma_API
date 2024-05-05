@@ -2,6 +2,7 @@ import math
 
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.exceptions import ValidationError
 
 
 class DrinkType(models.Model):
@@ -85,8 +86,8 @@ class Drink(models.Model):
     @property
     def rating(self) -> float:
         if self.count_marks != 0:
-            return self.sum_of_marks / self.count_marks
-        return 0
+            return round(self.sum_of_marks / self.count_marks, 1)
+        return 0.0
 
     @property
     def count_comments(self) -> int:
@@ -94,6 +95,24 @@ class Drink(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Photo(models.Model):
+    image = models.URLField()
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    drink = models.ForeignKey(
+        Drink,
+        on_delete=models.CASCADE,
+        related_name="photos",
+
+    )
+
+    def clean(self):
+        if self.drink.photos.count() >= 3:
+            raise ValidationError("Максимальна кількість фото для напою вже досягнута.")
+
+    def __str__(self):
+        return self.image
 
 
 class Comment(models.Model):
