@@ -51,9 +51,9 @@ class Volume(models.Model):
 
 class Drink(models.Model):
     name = models.CharField(unique=True, max_length=63)
-    descriptions = models.TextField()
-    price = models.DecimalField(max_digits=5, decimal_places=2)
-    phone = models.CharField(max_length=31)
+    descriptions = models.TextField(blank=True)
+    price = models.DecimalField(max_digits=7, decimal_places=2)
+    phone = models.CharField(max_length=31, blank=True)
     site_link = models.CharField(max_length=255, blank=True)
     strength = models.CharField(max_length=63, blank=True)
     taste_parameters = models.CharField(max_length=63, blank=True)
