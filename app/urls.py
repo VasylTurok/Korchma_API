@@ -6,7 +6,8 @@ from .views import (
     RegionViewSet,
     VolumeViewSet,
     ProducerViewSet,
-    CommentViewSet
+    CommentViewSet,
+    QuestionnaireViewSet
 )
 
 router = routers.DefaultRouter()
@@ -16,6 +17,7 @@ router.register("region", RegionViewSet)
 router.register("volume", VolumeViewSet)
 router.register("producer", ProducerViewSet)
 router.register("comment", CommentViewSet)
+router.register("questionnaire", QuestionnaireViewSet)
 
 
 urlpatterns = router.urls

@@ -19,7 +19,7 @@ from .serializers import (
     VolumeSerializer,
     RegionSerializer,
     CommentSerializer,
-    DrinkListSerializer
+    DrinkListSerializer, QuestionnaireSerializer
 )
 
 
@@ -86,3 +86,13 @@ class CommentViewSet(
 ):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+
+
+class QuestionnaireViewSet(
+    mixins.ListModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.CreateModelMixin,
+    GenericViewSet
+):
+    queryset = Questionnaire.objects.all()
+    serializer_class = QuestionnaireSerializer

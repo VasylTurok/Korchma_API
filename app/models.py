@@ -14,14 +14,15 @@ class DrinkType(models.Model):
 
 class Questionnaire(models.Model):
     name = models.CharField(max_length=63)
-    comment = models.TextField()
+    comment = models.TextField(blank=True)
     phone = models.CharField(max_length=31)
-    site_link = models.CharField(max_length=255)
+    site_link = models.CharField(max_length=255, blank=True)
     email = models.CharField(max_length=63)
     drink_type = models.ForeignKey(
         DrinkType,
         on_delete=models.CASCADE,
-        related_name="questionnaires"
+        related_name="questionnaires",
+        blank=True
     )
 
     def __str__(self):
@@ -30,6 +31,13 @@ class Questionnaire(models.Model):
 
 class Producer(models.Model):
     name = models.CharField(max_length=63)
+    logo = models.URLField(blank=True)
+    image = models.URLField(blank=True)
+    about = models.TextField(blank=True)
+    phone = models.CharField(max_length=31, blank=True)
+    email = models.CharField(max_length=63, blank=True)
+    insta = models.CharField(max_length=63, blank=True)
+    fb = models.CharField(max_length=63, blank=True)
 
     def __str__(self):
         return self.name

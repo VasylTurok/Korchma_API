@@ -9,13 +9,20 @@ from .models import (
     Volume,
     Region,
     Comment,
-    Photo
+    Photo,
+    Questionnaire
 )
 
 
 class RegionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Region
+        fields = "__all__"
+
+
+class QuestionnaireSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Questionnaire
         fields = "__all__"
 
 
