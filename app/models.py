@@ -46,6 +46,10 @@ class Producer(models.Model):
 class Region(models.Model):
     name = models.CharField(max_length=63)
 
+    @property
+    def count_drink(self) -> int:
+        return self.drinks.count
+
     def __str__(self):
         return self.name
 

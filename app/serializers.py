@@ -14,10 +14,15 @@ from .models import (
 )
 
 
+# TODO добавити кількість випивки в регіоні
 class RegionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Region
-        fields = "__all__"
+        fields = (
+            "id",
+            "name",
+            "count_drink"
+        )
 
 
 class QuestionnaireSerializer(serializers.ModelSerializer):
