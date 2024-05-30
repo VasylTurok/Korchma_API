@@ -56,6 +56,7 @@ class DrinkTypeViewSet(
 
 class ProducerViewSet(
     mixins.ListModelMixin,
+    mixins.RetrieveModelMixin,
     GenericViewSet
 ):
     queryset = Producer.objects.all()

@@ -14,7 +14,7 @@ from .models import (
 )
 
 
-# TODO добавити кількість випивки в регіоні
+# TODO додати по ID ендпоінт
 class RegionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Region
