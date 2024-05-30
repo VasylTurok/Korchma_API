@@ -14,7 +14,6 @@ from .models import (
 )
 
 
-# TODO додати по ID ендпоінт
 class RegionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Region
