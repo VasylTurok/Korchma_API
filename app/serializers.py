@@ -43,6 +43,8 @@ class VolumeSerializer(serializers.ModelSerializer):
 
 
 class ProducerSerializer(serializers.ModelSerializer):
+    region = RegionSerializer(many=False, read_only=True)
+
     class Meta:
         model = Producer
         fields = "__all__"
