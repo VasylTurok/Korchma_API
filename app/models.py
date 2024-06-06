@@ -29,6 +29,17 @@ class Questionnaire(models.Model):
         return self.name
 
 
+class Region(models.Model):
+    name = models.CharField(max_length=63)
+
+    @property
+    def count_drink(self) -> int:
+        return self.drinks.count
+
+    def __str__(self):
+        return self.name
+
+
 class Producer(models.Model):
     name = models.CharField(max_length=63)
     logo = models.URLField(blank=True)
@@ -38,17 +49,11 @@ class Producer(models.Model):
     email = models.CharField(max_length=63, blank=True)
     insta = models.CharField(max_length=63, blank=True)
     fb = models.CharField(max_length=63, blank=True)
-
-    def __str__(self):
-        return self.name
-
-
-class Region(models.Model):
-    name = models.CharField(max_length=63)
-
-    @property
-    def count_drink(self) -> int:
-        return self.drinks.count
+    region = models.ForeignKey(
+        Region,
+        on_delete=models.CASCADE,
+        related_name="producers"
+    )
 
     def __str__(self):
         return self.name
