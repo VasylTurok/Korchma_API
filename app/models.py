@@ -52,7 +52,8 @@ class Producer(models.Model):
     region = models.ForeignKey(
         Region,
         on_delete=models.CASCADE,
-        related_name="producers"
+        related_name="producers",
+        default=1
     )
 
     def __str__(self):
