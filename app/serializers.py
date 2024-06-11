@@ -47,7 +47,18 @@ class ProducerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Producer
-        fields = "__all__"
+        fields = (
+            "id",
+            "logo",
+            "image",
+            "about",
+            "phone",
+            "email",
+            "insta",
+            "fb",
+            "region",
+            "drink_types"
+        )
 
 
 class DrinkTypeSerializer(serializers.ModelSerializer):

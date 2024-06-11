@@ -1,4 +1,5 @@
 import math
+from typing import Any
 
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -55,6 +56,14 @@ class Producer(models.Model):
         related_name="producers",
         default=1
     )
+
+    @property
+    def drink_types(self) -> Any:
+        drink_type_names = set()
+        drinks = self.drinks.all()
+        for drink in drinks:
+            drink_type_names.add(drink.drink_type.name)
+        return list(drink_type_names)
 
     def __str__(self):
         return self.name
