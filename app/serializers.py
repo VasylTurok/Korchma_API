@@ -49,6 +49,7 @@ class ProducerSerializer(serializers.ModelSerializer):
         model = Producer
         fields = (
             "id",
+            "name",
             "logo",
             "image",
             "about",
